@@ -1,13 +1,11 @@
 package com.jayesh.login_register_page;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -21,11 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     // Class Object Create
-    MyDBHelper dbhelper = new MyDBHelper(this);
-    //    Variable Declaration
-    private TextView go_register, go_forgot;
+    MyDBHelper helper = new MyDBHelper(this);
     private EditText login_email, login_password;
-    private Button login_btn, login_facebook, login_google;
     private String user_email, user_password;
 
     // Override method
@@ -41,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         login();
     }
-    public  String getEmail()
-    {
+
+    public String getEmail() {
         return this.user_email;
     }
+
     public void toastPrint(String text) {
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.activity_custom_toast, (ViewGroup) findViewById(R.id.custom_toast_contenear));
+        View layout = inflater.inflate(R.layout.activity_custom_toast, findViewById(R.id.custom_toast_contenear));
         TextView textView = layout.findViewById(R.id.custom_toast_text);
         textView.setText(text);
         Toast toast = new Toast(getApplicationContext());
@@ -65,61 +61,45 @@ public class MainActivity extends AppCompatActivity {
 
         // Variable Reference Creation
 
-        go_register = (TextView) findViewById(R.id.go_register);
-        go_forgot = (TextView) findViewById(R.id.go_forgot);
-        login_email = (EditText) findViewById(R.id.login_email);
-        login_password = (EditText) findViewById(R.id.login_password);
-        login_btn = (Button) findViewById(R.id.login_btn);
-        login_facebook = (Button) findViewById(R.id.login_facebook);
-        login_google = (Button) findViewById(R.id.login_google);
+        //    Variable Declaration
+        TextView go_register = findViewById(R.id.go_register);
+        TextView go_forgot = findViewById(R.id.go_forgot);
+        login_email = findViewById(R.id.login_email);
+        login_password = findViewById(R.id.login_password);
+        Button login_btn = findViewById(R.id.login_btn);
+        Button login_facebook = findViewById(R.id.login_facebook);
+        Button login_google = findViewById(R.id.login_google);
 
         // Button Click Method
-        login_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        login_btn.setOnClickListener(v -> {
 
-                // Variable Initialization
-                user_email = login_email.getText().toString();
-                user_password = login_password.getText().toString();
+            // Variable Initialization
+            user_email = login_email.getText().toString();
+            user_password = login_password.getText().toString();
 
-                // Login Checked
-                if (!(TextUtils.isEmpty(user_email) || TextUtils.isEmpty(user_password))) {
-                        if (dbhelper.isUserPassword(user_email, user_password)) {
-                            toastPrint("Login Successful!");
-                            changeActivity(MainActivity.this, WelcomeActivity.class);
-                        } else {
-                            toastPrint("Login Failed!");
-                        }
+            // Login Checked
+            if (!(TextUtils.isEmpty(user_email) || TextUtils.isEmpty(user_password))) {
+                if (helper.isUserPassword(user_email, user_password)) {
+                    toastPrint("Login Successful!");
+                    changeActivity(MainActivity.this, WelcomeActivity.class);
                 } else {
-                    toastPrint("please fill all fields!");
+                    toastPrint("Login Failed!");
                 }
+            } else {
+                toastPrint("please fill all fields!");
             }
         });
 
-        login_facebook.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+        login_facebook.setOnClickListener(view -> {
 
-            }
         });
 
-        login_google.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+        login_google.setOnClickListener(view -> {
 
-            }
         });
 
-        go_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeActivity(MainActivity.this, Sign_Up.class);
-            }
-        });
+        go_register.setOnClickListener(v -> changeActivity(MainActivity.this, Sign_Up.class));
 
-        go_forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeActivity(MainActivity.this, Sign_Up.class);
-            }
-        });
+        go_forgot.setOnClickListener(v -> changeActivity(MainActivity.this, Sign_Up.class));
     }
 }
