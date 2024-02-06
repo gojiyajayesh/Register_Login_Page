@@ -47,11 +47,11 @@ Welcome to our sleek and secure Android application designed to provide hassle-f
 - Feel free to customize and expand the app according to your unique requirements.
 
 ## Screenshots 📸
-## Screenshots 📸
-
-<img src="screenshots/Login_Page.png" alt="Login Screen" width="300"/>
-<img src="screenshots/Sign_Up_Page.png" alt="SignUp Screen" width="300"/>
-<img src="screenshots/Welcome_Page.png" alt="Welcome Screen" width="300"/>
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshots/Login_Page.png" alt="Login Screen" width="300"/>
+  <img src="screenshots/Sign_Up_Page.png" alt="SignUp Screen" width="300"/>
+  <img src="screenshots/WelCome_Page.png" alt="Welcome Screen" width="300"/>
+</div>
 
 
 ## Author 🧑‍💻
