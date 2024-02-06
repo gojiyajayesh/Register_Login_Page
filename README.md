@@ -51,6 +51,7 @@ Welcome to our sleek and secure Android application designed to provide hassle-f
   <img src="screenshots/Login_Page.png" alt="Login Screen" width="300" style="margin: 20px;"/>
   <img src="screenshots/Sign_Up_Page.png" alt="SignUp Screen" width="300" style="margin: 20px;"/>
   <img src="screenshots/WelCome_Page.png" alt="Welcome Screen" width="300" style="margin: 20px;"/>
+  https://github.com/gojiyajayesh/Register_Login_Page/assets/150912172/1785dce9-f9d2-4e25-b4b9-4cccd736013b
 </div>
 
 ## Author 🧑‍💻
