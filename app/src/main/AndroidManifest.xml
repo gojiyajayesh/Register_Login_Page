@@ -14,17 +14,8 @@
         tools:targetApi="31" >
         <activity
             android:name=".WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Welcome"
-            android:exported="false" />
-        <activity
-            android:name=".CustomToastActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_login" />
+            android:screenOrientation="fullSensor"/>
         <activity
             android:name=".MainActivity"
             android:exported="true" >
@@ -36,7 +27,6 @@
         </activity>
         <activity
             android:name=".Sign_Up"
-            android:screenOrientation="portrait" />
+             />
     </application>
-
 </manifest>
